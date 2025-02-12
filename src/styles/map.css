@@ -3,6 +3,7 @@
     height: 160px;
     position: relative;
     overflow: hidden;
+    user-select: none; /* to prevent drag */
 }
 
 .map-hue, .map-gradient {
