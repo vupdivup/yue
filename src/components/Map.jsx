@@ -1,20 +1,21 @@
 import { useEffect, useRef, useState } from "react";
+import { useAdjust } from "../hooks/useAdjust";
 import "../styles/map.css";
 import { HSVToHSL } from "../utils/colors";
 import { Cursor } from "./Cursor";
-import { clamp } from "../utils/math";
-import { useAdjust } from "../hooks/useAdjust";
 
-export function Map({hue, handleChange}) {
+export function Map({hue, setS, setV}) {
     // TODO: have it as rgb or hex instead
     const hsl = HSVToHSL(hue, 100, 100);
-
-    const [s, setS] = useState(0);
-    const [v, setV] = useState(0);
 
     const map = useRef(null);
 
     const [coords, adjusting] = useAdjust({ref: map});
+
+    useEffect(() => {
+        setS(coords.relX * 100);
+        setV((1 - coords.relY) * 100);
+    })
 
     return (
         <div

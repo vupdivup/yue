@@ -34,6 +34,8 @@ export function useAdjust({ref}) {
         setAdjusting(false);
     }
 
+    // TODO: adjust on click
+
     function handleMouseMove(e) {
         if (!adjustingRef.current) return;
 

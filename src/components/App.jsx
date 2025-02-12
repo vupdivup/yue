@@ -1,11 +1,9 @@
-import { Map } from "./Map";
-import { Slider } from "./Slider";
+import { Picker } from "./Picker";
 
 export function App() {
     return (
         <>
-            <Map hue={100} />
-            <Slider />
+            <Picker />
         </>
     )
 }
