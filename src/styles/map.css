@@ -2,15 +2,16 @@
     width: 240px;
     height: 160px;
     position: relative;
+    overflow: hidden;
 }
 
-.map > * {
+.map-hue, .map-gradient {
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-.map-gradient-s {
+.map-gradient.saturation {
     background: linear-gradient(
         to right,
         rgb(255 255 255 / 100%),
@@ -18,10 +19,19 @@
     )
 }
 
-.map-gradient-v {
+.map-gradient.value {
     background: linear-gradient(
         to bottom,
         rgb(0 0 0 / 0%),
         rgb(0 0 0 / 100%)
     )
+}
+
+.cursor {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transform: translate(-12px, -12px);
+    fill: none;
+    stroke: white;
 }
