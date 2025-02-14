@@ -1,14 +1,3 @@
-export function HSLToHSV(h, s, l) {
-    const hsv = {}
-
-    // TODO: this doesn't work
-    hsv.h = h;
-    hsv.v = l + s * Math.min(l, 100 - l);
-    hsv.s = hsv.v === 0 ? 0 : 200 * (1 - l / hsv.v);
-
-    return hsv;
-}
-
 export function HSVToHSL(h, s, v) {
     const hsl = {}
 
@@ -22,4 +11,25 @@ export function HSVToHSL(h, s, v) {
     }
 
     return hsl;
+}
+
+export function HEXToRGB(hex) {
+    const r = hex.substring(1, 3);
+    const g = hex.substring(3, 5);
+    const b = hex.substring(5);
+
+    return {
+        r: parseInt(r, 16),
+        g: parseInt(g, 16),
+        b: parseInt(b, 16)
+    }
+}
+
+export function RGBToHEX(r, g, b) {
+    return (
+        "#" +
+        r.toString(16) +
+        g.toString(16) +
+        b.toString(16)
+    );
 }
