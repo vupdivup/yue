@@ -11,6 +11,7 @@ export function useAdjust({ref}) {
         adjustingRef.current = adjusting;
     }, [adjusting]);
     
+    // TODO: separate window and ref effects
     useEffect(() => {
         ref.current.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);
@@ -38,17 +39,19 @@ export function useAdjust({ref}) {
 
     function handleMouseMove(e) {
         if (!adjustingRef.current) return;
-
-        const rect = ref.current.getBoundingClientRect();
     
-        const x = clamp(e.clientX - rect.x, 0, rect.width);
-        const y = clamp(e.clientY - rect.y, 0, rect.height);
+        updateCoords(e.clientX, e.clientY);
+    }
+
+    function updateCoords(mouseX, mouseY) {
+        const rect = ref.current.getBoundingClientRect();
+
+        const x = clamp(mouseX - rect.x, 0, rect.width);
+        const y = clamp(mouseY - rect.y, 0, rect.height);
 
         setCoords({
-            x: x,
-            y: y,
-            relX: x / rect.width,
-            relY: y / rect.height
+            x: x / rect.width,
+            y: y / rect.height
         });
     }
 

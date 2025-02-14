@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useAdjust } from "../hooks/useAdjust";
-import "../styles/map.css";
 import { HSVToHSL } from "../utils/colors";
 import { Cursor } from "./Cursor";
+import { ColorContext } from "../contexts/ColorContext";
 
 export function Map({hue, setS, setV}) {
     // TODO: have it as rgb or hex instead
@@ -12,10 +12,12 @@ export function Map({hue, setS, setV}) {
 
     const [coords, adjusting] = useAdjust({ref: map});
 
+    const color = useContext(ColorContext);
+
     useEffect(() => {
-        setS(coords.relX * 100);
-        setV((1 - coords.relY) * 100);
-    })
+        setS(coords.x * 100);
+        setV((1 - coords.y) * 100);
+    }, [coords]);
 
     return (
         <div
@@ -30,7 +32,11 @@ export function Map({hue, setS, setV}) {
             />
             <div className="map-gradient saturation" />
             <div className="map-gradient value" />
-            <Cursor coords={coords}/>
+            <Cursor
+                x={coords.x}
+                y={coords.y}
+                fill={`hsl(${color.h}deg ${color.s}% ${color.l}%)`}
+            />
         </div>
     );
 }
