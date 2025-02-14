@@ -11,19 +11,27 @@ export function useAdjust({ref}) {
         adjustingRef.current = adjusting;
     }, [adjusting]);
     
-    // TODO: separate window and ref effects
     useEffect(() => {
-        ref.current.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);
         window.addEventListener("mousemove", handleMouseMove);
 
         return () => {
-            ref.current.removeEventListener(
-                "mousedown",
-                handleMouseDown
-            );
             window.removeEventListener("mouseup", handleMouseUp);
             window.removeEventListener("mousemove", handleMouseMove);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleClick = e => {
+            updateCoords(e.clientX, e.clientY);
+        }
+
+        ref.current.addEventListener("click", handleClick);
+        ref.current.addEventListener("mousedown", handleMouseDown);
+
+        return () => {
+            ref.current.removeEventListener("click", handleClick);
+            ref.current.removeEventListener("mousedown", handleMouseDown);
         }
     }, [ref]);
 
@@ -34,8 +42,6 @@ export function useAdjust({ref}) {
     function handleMouseUp(e) {
         setAdjusting(false);
     }
-
-    // TODO: adjust on click
 
     function handleMouseMove(e) {
         if (!adjustingRef.current) return;

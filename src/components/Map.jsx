@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import { useAdjust } from "../hooks/useAdjust";
 import { HSVToHSL } from "../utils/colors";
-import { Cursor } from "./Cursor";
+import { Thumb } from "./Thumb";
 import { ColorContext } from "../contexts/ColorContext";
 
 export function Map({hue, setS, setV}) {
@@ -32,7 +32,7 @@ export function Map({hue, setS, setV}) {
             />
             <div className="map-gradient saturation" />
             <div className="map-gradient value" />
-            <Cursor
+            <Thumb
                 x={coords.x}
                 y={coords.y}
                 fill={`hsl(${color.h}deg ${color.s}% ${color.l}%)`}

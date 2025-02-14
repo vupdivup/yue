@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 
-export function Cursor({x, y, fill}) {
+export function Thumb({x, y, fill}) {
     return (
         <svg
             className="cursor"

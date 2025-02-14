@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useAdjust } from "../hooks/useAdjust";
-import { Cursor } from "./Cursor";
+import { Thumb } from "./Thumb";
 
 export function Slider({setHue, hue}) {
     const slider = useRef(null);
@@ -14,7 +14,7 @@ export function Slider({setHue, hue}) {
     return (
         <div className="slider" ref={slider}>
             <div className="track"></div>
-            <Cursor
+            <Thumb
                 x={coords.x}
                 y={.5}
                 fill={`hsl(${hue}deg 100% 50%)`}
