@@ -6,7 +6,6 @@ export function App() {
     return (
         <>
             <Picker />
-            <Param pattern={/^\s*\d{1,3}\s*$/}/>
         </>
     )
 }

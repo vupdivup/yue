@@ -1,27 +1,31 @@
 import { useState, useRef } from "react"
 
-export function Param({setParam, pattern}) {
-    const [value, setValue] = useState((100).toString());
+export function Param({set, value, pattern}) {
+    const [inputValue, setInputValue] = useState(value.toString());
 
     const save = useRef("");
 
     function handleFocus() {
-        save.current = value;
+        save.current = inputValue;
     }
 
+    // TODO: add bounds
     function handleInput(e) {
-        setValue(e.target.value);
+        const input = e.target.value;
 
-        if (value.match(pattern)) {
-            // setParam(parseInt(self.current.value));
+        setInputValue(input);
+
+        if (input.match(pattern)) {
+            set(parseInt(input));
+            save.current = input;
         }
     }
 
     function handleBlur(e) {
-        if(value.match(pattern)) {
-            setValue(e.target.value.trim());
+        if(inputValue.match(pattern)) {
+            setInputValue(e.target.value.trim());
         } else {
-            setValue(save.current);
+            setInputValue(save.current);
         }
     }
 
@@ -29,7 +33,7 @@ export function Param({setParam, pattern}) {
         <div>
             <input
                 type="text"
-                value={value}
+                value={inputValue}
                 onFocus={handleFocus}
                 onInput={handleInput}
                 onBlur={handleBlur}
