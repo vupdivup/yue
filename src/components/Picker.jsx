@@ -3,7 +3,7 @@ import { Map } from "./Map";
 import { Slider } from "./Slider";
 import { ColorContext } from "../contexts/ColorContext";
 import { HEXToRGB, HSVToHSL, RGBToHEX } from "../utils/colors";
-import { ColorEditor } from "./Setter";
+import { ColorModeEditor } from "./ColorModeEditor";
 
 export function Picker() {
     const [rgb, setRGB] = useState({r: 0, g: 10, b: 20});
@@ -54,8 +54,8 @@ export function Picker() {
     return (
         <ColorContext.Provider value={null}>
             <div className="picker">
-                <ColorEditor params={params} />
-                <ColorEditor params={HEXParams} />
+                <ColorModeEditor params={params} />
+                <ColorModeEditor params={HEXParams} />
                 R{rgb.r} G{rgb.g} B{rgb.b}
                 <br />
                 HEX{hex}

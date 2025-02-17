@@ -1,6 +1,6 @@
-import { ColorModeParam } from "./Param";
+import { ColorModeParam } from "./ColorModeParam";
 
-export function ColorEditor({params}) {
+export function ColorModeEditor({params}) {
     const elems = params.map((p, i) =>
         <ColorModeParam
             key={i}
