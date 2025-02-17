@@ -1,6 +1,4 @@
-.editor {
-    min-width: 0px;
-    flex: 1;
+.group {
     display: flex;
     flex-direction: row;
     justify-content: center;

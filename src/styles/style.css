@@ -5,20 +5,22 @@
 
 * {
     font-family: Inter;
-    color: var(--gray-2);
+    color: var(--gray-3);
 }
 
 :root {
-    --gray-1: #b5b5b5;
-    --gray-2: #1c1c1c;
+    --gray-1: #e2e2e2;
+    --gray-2: #b5b5b5;
+    --gray-3: #1c1c1c;
 }
 
 .picker {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     padding: 24px;
     border-radius: 4px;
+    width: 640px;
     box-shadow: 0 0 1px black;
 }
 

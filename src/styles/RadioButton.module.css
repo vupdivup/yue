@@ -1,0 +1,27 @@
+.button {
+    width: 72px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: transparent;
+    cursor: pointer;
+}
+
+.button:hover, .button:focus {
+    outline: none;
+    border: 1px solid var(--gray-3);
+    transition: border-color .25s;
+}
+
+.selected {
+    pointer-events: none;
+    background-color: var(--gray-1);
+    /* TODO: this does not work */
+    /* transition: background-color .5s; */
+}
+
+.notSelected {
+    background-color: white;
+}

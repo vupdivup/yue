@@ -63,7 +63,7 @@ export function ColorModeParam({
     return (
         <input
             ref={inputRef} 
-            className={styles.input}
+            className={`${styles.input} ${styles[type]}`}
             type="text"
             value={
                 document.activeElement === inputRef.current ?

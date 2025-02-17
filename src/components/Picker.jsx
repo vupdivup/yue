@@ -5,6 +5,7 @@ import { CMYKToRGB, HEXToRGB, HSVToHSL, RGBToCMYK, RGBToHEX } from "../utils/col
 import { ColorModeEditor } from "./ColorModeEditor";
 import { Map } from "./Map";
 import { Slider } from "./Slider";
+import { RadioGroup } from "./RadioGroup";
 
 export function Picker() {
     // rgb holds state
@@ -99,15 +100,24 @@ export function Picker() {
         }
     ];
 
+    const modes = [
+        {name: "rgb", params: RGBParams},
+        {name: "hex", params: HEXParams}
+    ];
+
+    const [modeIdx, setModeIdx] = useState(0);
+
+    const mode = modes[modeIdx];
+
     return (
         <ColorContext.Provider value={null}>
             <div className="picker">
-                <div className={styles.editors}>
-                    <ColorModeEditor mode="RGB" params={RGBParams} />
-                    <ColorModeEditor mode="HEX" params={HEXParams} />
-                    <ColorModeEditor mode="CMYK" params={CMYKParams} />
-                </div>
-                
+                <RadioGroup
+                    choices={modes}
+                    idx={modeIdx}
+                    setIdx={setModeIdx}
+                />
+                <ColorModeEditor name={mode.name} params={mode.params} />
                 R{rgb.r} G{rgb.g} B{rgb.b}
                 <br />
                 HEX{hex}

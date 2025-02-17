@@ -15,10 +15,7 @@ export function ColorModeEditor({mode, params}) {
 
     return (
         <div className={styles.editor}>
-            <h3 className={styles.heading}>{mode}</h3>
-            <div className={styles.params}>
-                {elems}
-            </div>
+            {elems}
         </div>
     );
 }
