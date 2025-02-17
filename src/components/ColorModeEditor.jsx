@@ -1,6 +1,7 @@
 import { ColorModeParam } from "./ColorModeParam";
+import styles from "../styles/ColorModeEditor.module.css";
 
-export function ColorModeEditor({params}) {
+export function ColorModeEditor({mode, params}) {
     const elems = params.map((p, i) =>
         <ColorModeParam
             key={i}
@@ -13,8 +14,11 @@ export function ColorModeEditor({params}) {
     );
 
     return (
-        <div id="undecided">
-            {elems}
+        <div className={styles.editor}>
+            <h3 className={styles.heading}>{mode}</h3>
+            <div className={styles.params}>
+                {elems}
+            </div>
         </div>
     );
 }

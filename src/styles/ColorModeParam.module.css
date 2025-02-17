@@ -1,0 +1,16 @@
+.input {
+    min-width: 0;
+    flex: 1;
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-1);
+    height: 2em;
+}
+
+.input:hover, .input:focus {
+    outline: none;
+    border: 1px solid var(--gray-2);
+    transition: border-color .25s;
+}

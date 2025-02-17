@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Inter;
+    src: url('/assets/fonts/Inter/Inter.ttf');
+}
+
+* {
+    font-family: Inter;
+    color: var(--gray-2);
+}
+
+:root {
+    --gray-1: #b5b5b5;
+    --gray-2: #1c1c1c;
+}
+
 .picker {
     display: flex;
     flex-direction: column;

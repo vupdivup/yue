@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Map } from "./Map";
-import { Slider } from "./Slider";
 import { ColorContext } from "../contexts/ColorContext";
+import styles from "../styles/ColorPicker.module.css";
 import { CMYKToRGB, HEXToRGB, HSVToHSL, RGBToCMYK, RGBToHEX } from "../utils/colors";
 import { ColorModeEditor } from "./ColorModeEditor";
+import { Map } from "./Map";
+import { Slider } from "./Slider";
 
 export function Picker() {
     // rgb holds state
@@ -64,6 +65,7 @@ export function Picker() {
             name: "c",
             type: "number",
             value: cmyk.c,
+            suffix: "%",
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
             set: c => setCMYK({...cmyk, c: c})
@@ -72,6 +74,7 @@ export function Picker() {
             name: "m",
             type: "number",
             value: cmyk.m,
+            suffix: "%",
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
             set: m => setCMYK({...cmyk, m: m})
@@ -80,6 +83,7 @@ export function Picker() {
             name: "y",
             type: "number",
             value: cmyk.y,
+            suffix: "%",
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
             set: y => setCMYK({...cmyk, y: y})
@@ -88,20 +92,22 @@ export function Picker() {
             name: "k",
             type: "number",
             value: cmyk.k,
+            suffix: "%",
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
             set: k => setCMYK({...cmyk, k: k})
         }
-    ]
-
-
+    ];
 
     return (
         <ColorContext.Provider value={null}>
             <div className="picker">
-                <ColorModeEditor params={RGBParams} />
-                <ColorModeEditor params={HEXParams} />
-                <ColorModeEditor params={CMYKParams} />
+                <div className={styles.editors}>
+                    <ColorModeEditor mode="RGB" params={RGBParams} />
+                    <ColorModeEditor mode="HEX" params={HEXParams} />
+                    <ColorModeEditor mode="CMYK" params={CMYKParams} />
+                </div>
+                
                 R{rgb.r} G{rgb.g} B{rgb.b}
                 <br />
                 HEX{hex}

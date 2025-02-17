@@ -1,0 +1,17 @@
+.editor {
+    min-width: 0px;
+    flex: 1;
+}
+
+.heading {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0px 0px 8px 0px;
+}
+
+.params {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}

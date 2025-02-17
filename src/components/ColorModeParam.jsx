@@ -1,4 +1,5 @@
-import { useState, useRef } from "react"
+import { useState, useRef } from "react";
+import styles from "../styles/ColorModeParam.module.css";
 
 export function ColorModeParam({
     liveValue,
@@ -60,19 +61,18 @@ export function ColorModeParam({
     }
 
     return (
-        <div>
-            <input
-                ref={inputRef} 
-                type="text"
-                value={
-                    document.activeElement === inputRef.current ?
-                    focusedValue :
-                    liveValue
-                }
-                onFocus={handleFocus}
-                onInput={handleInput}
-                onBlur={handleBlur}
-            />
-        </div>
+        <input
+            ref={inputRef} 
+            className={styles.input}
+            type="text"
+            value={
+                document.activeElement === inputRef.current ?
+                focusedValue :
+                liveValue
+            }
+            onFocus={handleFocus}
+            onInput={handleInput}
+            onBlur={handleBlur}
+        />
     )
 }
