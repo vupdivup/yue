@@ -1,6 +1,6 @@
 import { Picker } from "./Picker";
 import "../styles/style.css";
-import { Param } from "./Param";
+import { ColorModeParam } from "./Param";
 
 export function App() {
     return (
