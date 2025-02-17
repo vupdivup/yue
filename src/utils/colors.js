@@ -33,3 +33,29 @@ export function RGBToHEX(r, g, b) {
         b.toString(16).padStart(2, "0")
     );
 }
+
+export function CMYKToRGB({c, m, y, k}) {
+    const r = 255 * (1 - c / 100) * (1 - k / 100);
+    const g = 255 * (1 - m / 100) * (1 - k / 100);
+    const b = 255 * (1 - y / 100) * (1 - k / 100);
+
+    return {
+        r: Math.round(r),
+        g: Math.round(g),
+        b: Math.round(b)
+    }
+}
+
+export function RGBToCMYK({r, g, b}) {
+    const k = 1 - (Math.max(r, g, b) / 255);
+    const c = (1 - r / 255 - k) / (1 - k);
+    const m = (1 - g / 255 - k) / (1 - k);
+    const y = (1 - b / 255 - k) / (1 - k);
+
+    return {
+        c: Math.round(c * 100),
+        m: Math.round(m * 100),
+        y: Math.round(y * 100),
+        k: Math.round(k * 100)
+    }
+}
