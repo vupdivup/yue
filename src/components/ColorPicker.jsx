@@ -1,20 +1,10 @@
 import { useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
-import styles from "../styles/ColorPicker.module.css";
-import { CMYKToRGB, HEXToRGB, HSVToHSL, RGBToCMYK, RGBToHEX } from "../utils/colors";
+import { CMYKToRGB, HEXToRGB } from "../utils/colors";
 import { ColorModeEditor } from "./ColorModeEditor";
-import { Map } from "./Map";
-import { Slider } from "./Slider";
 import { RadioGroup } from "./RadioGroup";
 
-export function Picker() {
-    // rgb holds state
-    const [rgb, setRGB] = useState({r: 0, g: 10, b: 20});
-
-    // all other color modes are derived from rgb state
-    const hex = RGBToHEX(rgb.r, rgb.g, rgb.b);
-    const cmyk = RGBToCMYK(rgb);
-
+export function ColorPicker({rgb, hex, cmyk, setRGB}) {
     function setHEX(hex) {
         setRGB(HEXToRGB(hex));
     }
@@ -102,7 +92,8 @@ export function Picker() {
 
     const modes = [
         {name: "rgb", params: RGBParams},
-        {name: "hex", params: HEXParams}
+        {name: "hex", params: HEXParams},
+        {name: "cmyk", params: CMYKParams}
     ];
 
     const [modeIdx, setModeIdx] = useState(0);
@@ -118,11 +109,6 @@ export function Picker() {
                     setIdx={setModeIdx}
                 />
                 <ColorModeEditor name={mode.name} params={mode.params} />
-                R{rgb.r} G{rgb.g} B{rgb.b}
-                <br />
-                HEX{hex}
-                <br />
-                C{cmyk.c} M{cmyk.m} Y{cmyk.y} K{cmyk.k}
             </div>
         </ColorContext.Provider>
     )
