@@ -10,7 +10,9 @@ export function HueSlider({setHSV}) {
     const values = useContext(ColorContext);
 
     function handleAdjust(x, y) {
-        setHSV({...values.hsv, h: x * 360});
+        setHSV(hsv => {
+            return {...hsv, h: Math.round(x * 360)}
+        });
     }
 
     return (

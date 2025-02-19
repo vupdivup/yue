@@ -1,6 +1,6 @@
-import {roundObj} from "./math.js";
+import { roundObj } from "./math.js";
 
-export function HSVToHSL(h, s, v) {
+export function HSVToHSL({h, s, v}) {
     const hsl = {}
 
     hsl.h = h;
@@ -118,8 +118,8 @@ export function RGBToHSV({r, g, b}) {
         hsv.h = (r - g) / c + 4;
     }
 
-    hsv.h = hsv.h < 0 ? 6 + hsv.h : hsv.h;
     hsv.h *= 60;
+    hsv.h = (hsv.h % 360 + 360) % 360;
 
     hsv.s = hsv.v === 0 ? 0 : c / hsv.v;
 

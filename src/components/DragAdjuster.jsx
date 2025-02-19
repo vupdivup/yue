@@ -2,7 +2,13 @@ import { useEffect, useRef } from "react";
 import styles from "../styles/DragAdjuster.module.css";
 import { clamp } from "../utils/math";
 
-export function DragAdjuster({handleAdjust, dragging, setDragging, children}) {
+export function DragAdjuster({
+    className,
+    handleAdjust,
+    dragging,
+    setDragging,
+    children
+}) {
     const self = useRef(null);
 
     // sync dragging for async window handler
@@ -57,7 +63,7 @@ export function DragAdjuster({handleAdjust, dragging, setDragging, children}) {
     return (
         <div
             ref={self}
-            className={styles.adjuster}
+            className={`${styles.adjuster} ${className}`}
             onClick={handleClick}
             onMouseDown={handleMouseDown}
         >
