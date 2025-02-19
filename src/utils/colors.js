@@ -12,7 +12,7 @@ export function HSVToHSL({h, s, v}) {
         hsl.s = (v - hsl.l) / Math.min(hsl.l, 100 - hsl.l) * 100;
     }
 
-    return hsl;
+    return roundObj(hsl);
 }
 
 export function HSLToHSV({h, s, l}) {

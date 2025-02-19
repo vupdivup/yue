@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ColorContext } from "../contexts/ColorContext";
 import { useDragAdjuster } from "../hooks/useDragAdjuster";
-import { Thumb } from "./Thumb";
-import { DragAdjuster } from "./DragAdjuster";
 import styles from "../styles/ColorPickerMap.module.css";
+import { DragAdjuster } from "./DragAdjuster";
+import { Thumb } from "./Thumb";
 
 export function ColorPickerMap({setHSV}) {
     const [dragging, props] = useDragAdjuster(handleAdjust);
@@ -14,7 +14,7 @@ export function ColorPickerMap({setHSV}) {
         const s = x * 100;
         const v = (1 - y) * 100;
         setHSV(hsv => {
-            return {...hsv, s: s, v: v}
+            return {...hsv, s: Math.round(s), v: Math.round(v)}
         });
     }
 
