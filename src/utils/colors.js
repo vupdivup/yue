@@ -47,29 +47,29 @@ export function RGBToHEX({r, g, b}) {
 }
 
 export function CMYKToRGB({c, m, y, k}) {
-    const r = 255 * (1 - c / 100) * (1 - k / 100);
-    const g = 255 * (1 - m / 100) * (1 - k / 100);
-    const b = 255 * (1 - y / 100) * (1 - k / 100);
+    const rgb = {};
 
-    return {
-        r: Math.round(r),
-        g: Math.round(g),
-        b: Math.round(b)
-    }
+    rgb.r = 255 * (1 - c / 100) * (1 - k / 100);
+    rgb.g = 255 * (1 - m / 100) * (1 - k / 100);
+    rgb.b = 255 * (1 - y / 100) * (1 - k / 100);
+
+    return roundObj(rgb);
 }
 
 export function RGBToCMYK({r, g, b}) {
-    const k = 1 - (Math.max(r, g, b) / 255);
-    const c = (1 - r / 255 - k) / (1 - k);
-    const m = (1 - g / 255 - k) / (1 - k);
-    const y = (1 - b / 255 - k) / (1 - k);
+    let cmyk = {}
 
-    return {
-        c: Math.round(c * 100),
-        m: Math.round(m * 100),
-        y: Math.round(y * 100),
-        k: Math.round(k * 100)
-    }
+    cmyk.k = 1 - (Math.max(r, g, b) / 255);
+    cmyk.c = cmyk.k === 1 ? 0 : (1 - r / 255 - cmyk.k) / (1 - cmyk.k);
+    cmyk.m = cmyk.k === 1 ? 0 : (1 - g / 255 - cmyk.k) / (1 - cmyk.k);
+    cmyk.y = cmyk.k === 1 ? 0 : (1 - b / 255 - cmyk.k) / (1 - cmyk.k);
+
+    cmyk.c = cmyk.c * 100;
+    cmyk.m = cmyk.m * 100;
+    cmyk.y = cmyk.y * 100;
+    cmyk.k = cmyk.k * 100;
+
+    return roundObj(cmyk);
 }
 
 export function HSVToRGB({h, s, v}) {
