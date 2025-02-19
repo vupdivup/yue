@@ -15,6 +15,16 @@ export function HSVToHSL({h, s, v}) {
     return hsl;
 }
 
+export function HSLToHSV({h, s, l}) {
+    const hsv = {};
+
+    hsv.h = h;
+    hsv.v = l + s * Math.min(l / 100, 1 - l / 100);
+    hsv.s = hsv.v === 0 ? 0 : 200 * (1 - l / hsv.v);
+
+    return roundObj(hsv);
+}
+
 export function HEXToRGB(hex) {
     const r = hex.substring(1, 3);
     const g = hex.substring(3, 5);
@@ -27,7 +37,7 @@ export function HEXToRGB(hex) {
     }
 }
 
-export function RGBToHEX(r, g, b) {
+export function RGBToHEX({r, g, b}) {
     return (
         "#" +
         r.toString(16).padStart(2, "0") +
@@ -126,4 +136,20 @@ export function RGBToHSV({r, g, b}) {
     hsv = {...hsv, s: hsv.s * 100, v: hsv.v * 100};
 
     return roundObj(hsv);
+}
+
+export function HSVToHEX(hsv) {
+    return RGBToHEX(HSVToRGB(hsv));
+}
+
+export function HEXToHSV(hex) {
+    return RGBToHSV(HEXToRGB(hex));
+}
+
+export function HSVToCMYK(hsv) {
+    return RGBToCMYK(HSVToRGB(hsv));
+}
+
+export function CMYKToHSV(cmyk) {
+    return RGBToHSV(CMYKToRGB(cmyk));
 }
