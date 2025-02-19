@@ -118,6 +118,7 @@ export function RGBToHSV({r, g, b}) {
         hsv.h = (r - g) / c + 4;
     }
 
+    hsv.h = hsv.h < 0 ? 6 + hsv.h : hsv.h;
     hsv.h *= 60;
 
     hsv.s = hsv.v === 0 ? 0 : c / hsv.v;

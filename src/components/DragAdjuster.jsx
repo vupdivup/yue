@@ -33,7 +33,6 @@ export function DragAdjuster({handleAdjust, dragging, setDragging, children}) {
 
         // coordinates are of range [0, 1]
         // relative to element dimensions
-        console.log("handling")
         handleAdjust(x / rect.width, y / rect.height);
     }
 

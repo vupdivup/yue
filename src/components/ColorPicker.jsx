@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
-import { CMYKToRGB, HEXToRGB } from "../utils/colors";
+import { CMYKToRGB, HEXToRGB, HSVToRGB } from "../utils/colors";
 import { ColorModeEditor } from "./ColorModeEditor";
 import { RadioGroup } from "./RadioGroup";
+import { HueSlider } from "./HueSlider";
 
-export function ColorPicker({rgb, hex, cmyk, setRGB}) {
+export function ColorPicker({rgb, hex, cmyk, hsv, setRGB}) {
     function setHEX(hex) {
         setRGB(HEXToRGB(hex));
     }
 
     function setCMYK(cmyk) {
         setRGB(CMYKToRGB(cmyk));
+    }
+
+    function setHSV(hsv) {
+        setRGB(HSVToRGB(hsv));
     }
 
     const RGBParams = [
@@ -101,7 +106,10 @@ export function ColorPicker({rgb, hex, cmyk, setRGB}) {
     const mode = modes[modeIdx];
 
     return (
-        <ColorContext.Provider value={null}>
+        // context value is only temporary
+        <ColorContext.Provider value={{
+            rgb: rgb, hex: hex, cmyk: cmyk, hsv: hsv
+        }}>
             <div className="picker">
                 <RadioGroup
                     choices={modes}
@@ -109,6 +117,7 @@ export function ColorPicker({rgb, hex, cmyk, setRGB}) {
                     setIdx={setModeIdx}
                 />
                 <ColorModeEditor name={mode.name} params={mode.params} />
+                <HueSlider setHSV={setHSV} />
             </div>
         </ColorContext.Provider>
     )

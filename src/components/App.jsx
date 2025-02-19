@@ -3,7 +3,7 @@ import "../styles/style.css";
 import { ColorPicker } from "./ColorPicker";
 
 export function App() {
-    const [rgb, hex, cmyk, props] = useColorPicker();
+    const [rgb, hex, cmyk, hsv, props] = useColorPicker();
 
     return (
         <>
@@ -13,6 +13,8 @@ export function App() {
             HEX{hex}
             <br />
             C{cmyk.c} M{cmyk.m} Y{cmyk.y} K{cmyk.k}
+            <br />
+            H{hsv.h} S{hsv.s} V{hsv.v}
         </>
     )
 }

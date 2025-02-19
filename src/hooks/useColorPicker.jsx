@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RGBToCMYK, RGBToHEX } from "../utils/colors";
+import { RGBToCMYK, RGBToHEX, RGBToHSV } from "../utils/colors";
 
 export function useColorPicker() {
     // rgb holds state
@@ -8,12 +8,14 @@ export function useColorPicker() {
     // all other color modes are derived from rgb state
     const hex = RGBToHEX(rgb.r, rgb.g, rgb.b);
     const cmyk = RGBToCMYK(rgb);
+    const hsv = RGBToHSV(rgb);
 
     // props to pass to picker component
     const props = {
         rgb: rgb,
         hex: hex,
         cmyk: cmyk,
+        hsv: hsv,
         setRGB: setRGB
     }
 
@@ -21,6 +23,7 @@ export function useColorPicker() {
         rgb,
         hex,
         cmyk,
+        hsv,
         props
     ];
 }
