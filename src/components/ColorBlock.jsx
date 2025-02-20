@@ -10,8 +10,7 @@ export function ColorBlock() {
             height: "48px",
         }}
             className={`widget`}
-        >
-            color name
+        >   
         </div>
     )
 }

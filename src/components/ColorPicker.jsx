@@ -27,7 +27,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     const HEXParams = [
         {
             name: "hex",
-            type: "string",
             value: hex,
             pattern: /^\s*#[a-fA-F0-9]{6}\s*/,
             set: setHEX
@@ -37,7 +36,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     const RGBParams = [
         {
             name: "r",
-            type: "number",
             value: rgb.r,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 255},
@@ -45,7 +43,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "g",
-            type: "number",
             value: rgb.g,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 255},
@@ -53,7 +50,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "b",
-            type: "number",
             value: rgb.b,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 255},
@@ -64,7 +60,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     const CMYKParams = [
         {
             name: "c",
-            type: "number",
             value: cmyk.c,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -72,7 +67,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "m",
-            type: "number",
             value: cmyk.m,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -80,7 +74,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "y",
-            type: "number",
             value: cmyk.y,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -88,7 +81,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "k",
-            type: "number",
             value: cmyk.k,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -99,7 +91,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     const HSVParams = [
         {
             name: "h",
-            type: "number",
             value: hsv.h,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 360},
@@ -107,7 +98,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "s",
-            type: "number",
             value: hsv.s,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -115,7 +105,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "v",
-            type: "number",
             value: hsv.v,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -126,7 +115,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     const HSLParams = [
         {
             name: "h",
-            type: "number",
             value: hsl.h,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 360},
@@ -134,7 +122,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "s",
-            type: "number",
             value: hsl.s,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -142,7 +129,6 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
         },
         {
             name: "l",
-            type: "number",
             value: hsl.l,
             pattern: /^\s*0*\d{1,3}\s*$/,
             bounds: {min: 0, max: 100},
@@ -151,11 +137,11 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     ]
 
     const modes = [
-        {name: "hex", params: HEXParams},
-        {name: "rgb", params: RGBParams},
-        {name: "cmyk", params: CMYKParams},
-        {name: "hsv", params: HSVParams},
-        {name: "hsl", params: HSLParams}
+        {name: "hex", type: "string", params: HEXParams},
+        {name: "rgb", type: "numeric", params: RGBParams},
+        {name: "cmyk", type: "numeric", params: CMYKParams},
+        {name: "hsv", type: "numeric", params: HSVParams},
+        {name: "hsl", type: "numeric", params: HSLParams}
     ]
 
     const [modeIdx, setModeIdx] = useState(0);
@@ -176,7 +162,11 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
                     idx={modeIdx}
                     setIdx={setModeIdx}
                 />
-                <ColorModeEditor name={mode.name} params={mode.params} />
+                <ColorModeEditor
+                    mode={mode.name}
+                    type={mode.type}
+                    params={mode.params}
+                />
             </div>
         </ColorContext.Provider>
     )

@@ -45,7 +45,7 @@ export function ColorModeParam({
         // convert to string for integer params
         if (!input.toString().match(pattern)) return false;
 
-        if (type !== "number") return true;
+        if (type !== "numeric") return true;
 
         const num = normalize(input);
 
@@ -54,7 +54,7 @@ export function ColorModeParam({
 
     function normalize(input) {
         switch(type) {
-            case "number":
+            case "numeric":
                 return parseInt(input);
             case "string":
                 return input.trim();

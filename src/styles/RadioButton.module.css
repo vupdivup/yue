@@ -6,17 +6,6 @@
     text-transform: uppercase;
     border-radius: var(--border-radius-2);
     border: transparent;
-    cursor: pointer;
-}
-
-.button:hover {
-    box-shadow: 0 0 2px var(--gray-3);
-}
-
-.button:focus {
-    outline: none;
-    border: 1px solid var(--gray-3);
-    transition: border-color .25s;
 }
 
 .selected {

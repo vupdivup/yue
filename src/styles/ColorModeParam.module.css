@@ -20,7 +20,7 @@
     border: 1px solid var(--gray-3);
 }
 
-.number {
+.numeric {
     max-width: 48px;
 }
 

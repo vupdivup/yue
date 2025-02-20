@@ -9,7 +9,7 @@ export function RadioButton({select, name, isSelected}) {
     return (
         <button
             className={
-                `${styles.button} ${
+                `button ${styles.button} ${
                     isSelected ? styles.selected : styles.notSelected
                 }`
             } 
