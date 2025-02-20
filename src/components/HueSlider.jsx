@@ -17,7 +17,7 @@ export function HueSlider({setHSV}) {
 
     return (
         <DragAdjuster {...props}>
-            <div className={styles.track}></div>
+            <div className={`widget ${styles.track}`}></div>
             <Thumb
                 x={values.hsv.h / 360}
                 y={.5}

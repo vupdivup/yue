@@ -5,6 +5,7 @@ import { ColorModeEditor } from "./ColorModeEditor";
 import { RadioGroup } from "./RadioGroup";
 import { HueSlider } from "./HueSlider";
 import { ColorPickerMap } from "./ColorPickerMap";
+import { ColorBlock } from "./ColorBlock";
 
 export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
     function setHEX(hex) {
@@ -167,14 +168,15 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
             rgb: rgb, hsl: hsl, hex: hex, cmyk: cmyk, hsv: hsv
         }}>
             <div className="picker">
+                <ColorPickerMap setHSV={setHSV} />
+                <HueSlider setHSV={setHSV} />
+                <ColorBlock />
                 <RadioGroup
                     choices={modes}
                     idx={modeIdx}
                     setIdx={setModeIdx}
                 />
                 <ColorModeEditor name={mode.name} params={mode.params} />
-                <ColorPickerMap setHSV={setHSV} />
-                <HueSlider setHSV={setHSV} />
             </div>
         </ColorContext.Provider>
     )

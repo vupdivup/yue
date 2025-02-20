@@ -8,8 +8,6 @@ export function App() {
     return (
         <>
             <ColorPicker {...props} />
-            R{rgb.r} G{rgb.g} B{rgb.b}
-            H{hsv.h} S{hsv.s} V{hsv.v}
         </>
     )
 }

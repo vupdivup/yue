@@ -19,7 +19,7 @@ export function ColorPickerMap({setHSV}) {
     }
 
     return (
-        <DragAdjuster {...props} className={styles.map}>
+        <DragAdjuster {...props} className={`widget ${styles.map}`}>
             <div
                 className={styles.hue}
                 style={{

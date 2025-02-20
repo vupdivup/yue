@@ -17,6 +17,7 @@ export function ColorModeParam({
 
     function handleFocus() {
         save.current = liveValue;
+        inputRef.current.select();
     }
 
     function handleInput(e) {
