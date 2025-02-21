@@ -15,7 +15,7 @@ export function App() {
                 />
                 <h2 className={styles.heading}>Yue</h2>
             </div>
-            <ColorPicker {...props} />
+            <ColorPicker {...props} className={styles.picker} />
         </div>
     )
 }
