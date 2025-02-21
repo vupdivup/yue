@@ -1,0 +1,18 @@
+.button {
+    width: 72px;
+    height: 32px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: var(--border-radius-2);
+    border: transparent;
+}
+
+.selected {
+    pointer-events: none;
+    background-color: var(--gray-1);
+}
+
+.notSelected {
+    background-color: white;
+}

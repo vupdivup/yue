@@ -1,0 +1,8 @@
+.track {
+    height: 16px;
+    background: linear-gradient(
+        in hsl longer hue to right,
+        hsl(0deg 100% 50%),
+        hsl(360deg 100% 50%)
+    );
+}

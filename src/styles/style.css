@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Inter;
+    src: url('/assets/fonts/Inter/Inter.ttf');
+}
+
+* {
+    font-family: Inter;
+    color: var(--gray-3);
+    box-sizing: border-box;
+}
+
+:root {
+    --gray-1: #d5d5d5;
+    --gray-2: #828282;
+    --gray-3: #1c1c1c;
+    --border-radius-1: 4px;
+    --border-radius-2: 8px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.widget {
+    box-shadow: 0 0 2px var(--gray-2);
+    border-radius: var(--border-radius-2);
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0 0 2px var(--gray-3);
+}
+
+.button:focus {
+    outline: 1px solid var(--gray-3);
+}
+
+.feather {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
