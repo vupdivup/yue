@@ -1,172 +1,22 @@
-import { useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
-import { CMYKToHSV, CMYKToRGB, HEXToHSV, HEXToRGB, HSLToHSV, HSVToRGB, RGBToHSV } from "../utils/colors";
-import { ColorModeEditor } from "./ColorModeEditor";
-import { RadioGroup } from "./RadioGroup";
-import { HueSlider } from "./HueSlider";
-import { ColorPickerMap } from "./ColorPickerMap";
 import { ColorBlock } from "./ColorBlock";
+import { ColorPickerMap } from "./ColorPickerMap";
+import { EditorPanel } from "./EditorPanel";
+import { HueSlider } from "./HueSlider";
+import styles from "../styles/Picker.module.css";
 
 export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV}) {
-    function setHEX(hex) {
-        setHSV(HEXToHSV(hex));
+    const color = {
+        rgb: rgb, hsl: hsl, hex: hex, cmyk: cmyk, hsv: hsv
     }
-    
-    function setRGB(rgb) {
-        setHSV(RGBToHSV(rgb));
-    }
-
-    function setCMYK(cmyk) {
-        setHSV(CMYKToHSV(cmyk));
-    }
-
-    function setHSL(hsl) {
-        setHSV(HSLToHSV(hsl));
-    }
-
-    const HEXParams = [
-        {
-            name: "hex",
-            value: hex,
-            pattern: /^\s*#[a-fA-F0-9]{6}\s*/,
-            set: setHEX
-        }
-    ]
-
-    const RGBParams = [
-        {
-            name: "r",
-            value: rgb.r,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 255},
-            set: r => setRGB({...rgb, r: r})
-        },
-        {
-            name: "g",
-            value: rgb.g,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 255},
-            set: g => setRGB({...rgb, g: g})
-        },
-        {
-            name: "b",
-            value: rgb.b,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 255},
-            set: b => setRGB({...rgb, b: b})
-        }
-    ]
-
-    const CMYKParams = [
-        {
-            name: "c",
-            value: cmyk.c,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: c => setCMYK({...cmyk, c: c})
-        },
-        {
-            name: "m",
-            value: cmyk.m,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: m => setCMYK({...cmyk, m: m})
-        },
-        {
-            name: "y",
-            value: cmyk.y,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: y => setCMYK({...cmyk, y: y})
-        },
-        {
-            name: "k",
-            value: cmyk.k,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: k => setCMYK({...cmyk, k: k})
-        }
-    ]
-
-    const HSVParams = [
-        {
-            name: "h",
-            value: hsv.h,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 360},
-            set: h => setHSV({...hsv, h: h})
-        },
-        {
-            name: "s",
-            value: hsv.s,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: s => setHSV({...hsv, s: s})
-        },
-        {
-            name: "v",
-            value: hsv.v,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: v => setHSV({...hsv, v: v})
-        }
-    ]
-
-    const HSLParams = [
-        {
-            name: "h",
-            value: hsl.h,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 360},
-            set: h => setHSL({...hsl, h: h})
-        },
-        {
-            name: "s",
-            value: hsl.s,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: s => setHSL({...hsl, s: s})
-        },
-        {
-            name: "l",
-            value: hsl.l,
-            pattern: /^\s*0*\d{1,3}\s*$/,
-            bounds: {min: 0, max: 100},
-            set: l => setHSL({...hsl, l: l})
-        }
-    ]
-
-    const modes = [
-        {name: "hex", type: "string", params: HEXParams},
-        {name: "rgb", type: "numeric", params: RGBParams},
-        {name: "cmyk", type: "numeric", params: CMYKParams},
-        {name: "hsv", type: "numeric", params: HSVParams},
-        {name: "hsl", type: "numeric", params: HSLParams}
-    ]
-
-    const [modeIdx, setModeIdx] = useState(0);
-
-    const mode = modes[modeIdx];
 
     return (
-        // context value is only temporary
-        <ColorContext.Provider value={{
-            rgb: rgb, hsl: hsl, hex: hex, cmyk: cmyk, hsv: hsv
-        }}>
-            <div className="picker">
+        <ColorContext.Provider value={color}>
+            <div className={`widget ${styles.picker}`}>
                 <ColorPickerMap setHSV={setHSV} />
                 <HueSlider setHSV={setHSV} />
                 <ColorBlock />
-                <RadioGroup
-                    choices={modes}
-                    idx={modeIdx}
-                    setIdx={setModeIdx}
-                />
-                <ColorModeEditor
-                    mode={mode.name}
-                    type={mode.type}
-                    params={mode.params}
-                />
+                <EditorPanel setHSV={setHSV} />
             </div>
         </ColorContext.Provider>
     )

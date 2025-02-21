@@ -1,7 +1,4 @@
 .input {
-    min-width: 0;
-    max-width: 96px;
-    flex: 1;
     font-size: 12px;
     font-weight: 400;
     text-align: center;
@@ -21,9 +18,9 @@
 }
 
 .numeric {
-    max-width: 48px;
+    width: 48px;
 }
 
 .string {
-    max-width: 96px;
+    width: 96px;
 }

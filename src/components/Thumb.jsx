@@ -1,6 +1,6 @@
 import styles from "../styles/Thumb.module.css";
 
-export function Thumb({x, y, fill}) {
+export function Thumb({x, y, fill, dragging}) {
     const gray1 = window.getComputedStyle(document.body)
         .getPropertyValue("--gray-1");
 

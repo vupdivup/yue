@@ -43,11 +43,16 @@ export function DragAdjuster({
     }
 
     function handleMouseDown(e) {
+        // needed to prevent arbitrary element dragging
+        e.preventDefault();
+        
         setDragging(true);
+        document.body.style.cursor = "pointer";
     }
     
     function handleMouseUp(e) {
         setDragging(false);
+        document.body.style.cursor = "";
     }
 
     function handleMouseMove(e) {
@@ -66,6 +71,7 @@ export function DragAdjuster({
             className={`${styles.adjuster} ${className}`}
             onClick={handleClick}
             onMouseDown={handleMouseDown}
+            onDragStart={e => console.log(e)}
         >
             {children}
         </div>
