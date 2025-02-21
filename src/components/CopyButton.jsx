@@ -1,4 +1,5 @@
 import styles from "../styles/CopyButton.module.css";
+import featherSpriteURL from "/assets/icons/feather/feather-sprite.svg";
 
 export function CopyButton({value}) {
     function handleClick(e) {
@@ -10,7 +11,7 @@ export function CopyButton({value}) {
         <button className={`button ${styles.button}`} onClick={handleClick}>
             <svg className={`feather ${styles.icon}`}>
                 <use 
-                    href="/assets/icons/feather/feather-sprite.svg#copy"  
+                    href={`${featherSpriteURL}#copy`}
                 />
             </svg>
         </button>
