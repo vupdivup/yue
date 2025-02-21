@@ -8,13 +8,11 @@ export function App() {
 
     return (
         <div className={styles.app}>
-            <div className={styles.banner}>
-                <img
-                    className={styles.logo}
-                    src="assets/icons/logo/logo.png"
-                />
-                <h2 className={styles.heading}>Yue</h2>
-            </div>
+            <img
+                src="assets/branding/banner-light.svg"
+                alt="Yue banner"
+                className={styles.banner}
+            />
             <Picker {...props} className={styles.picker} />
         </div>
     )

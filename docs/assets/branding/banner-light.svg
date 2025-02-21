@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="480"
+   height="128"
+   viewBox="0 0 127 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="public\assets\logo\banner-light.png"
+   inkscape:export-xdpi="36"
+   inkscape:export-ydpi="36"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="0.97386895"
+     inkscape:cx="138.62235"
+     inkscape:cy="74.445335"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="2.1166666"
+       spacingy="2.1166666"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="4"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Réteg 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ff0000;stroke-width:5.38606"
+       id="path1"
+       sodipodi:type="arc"
+       sodipodi:cx="16.933332"
+       sodipodi:cy="0"
+       sodipodi:rx="16.933332"
+       sodipodi:ry="16.933331"
+       sodipodi:start="0"
+       sodipodi:end="1.5707963"
+       sodipodi:arc-type="slice"
+       d="M 33.866665,0 A 16.933332,16.933331 0 0 1 16.933332,16.933331 V 0 Z" />
+    <rect
+       style="fill:#00ff00;stroke-width:2.9922"
+       id="rect1"
+       width="16.919447"
+       height="16.933332"
+       x="0"
+       y="16.933332" />
+    <path
+       style="fill:#ffff00;stroke-width:5.38606"
+       id="path2"
+       sodipodi:type="arc"
+       sodipodi:cx="-16.933332"
+       sodipodi:cy="-16.933332"
+       sodipodi:rx="16.933332"
+       sodipodi:ry="16.933331"
+       sodipodi:start="0"
+       sodipodi:end="1.5707963"
+       sodipodi:arc-type="slice"
+       d="M 0,-16.933332 A 16.933332,16.933331 0 0 1 -16.933332,-1.9073486e-6 V -16.933332 Z"
+       transform="scale(-1)" />
+    <rect
+       style="fill:#0000ff;stroke-width:2.11841"
+       id="rect3"
+       width="8.4805517"
+       height="16.933332"
+       x="16.919447"
+       y="16.933332" />
+    <rect
+       style="fill:#ff00ff;stroke-width:2.11841"
+       id="rect4"
+       width="8.4805517"
+       height="16.933332"
+       x="25.386114"
+       y="16.933332" />
+    <text
+       xml:space="preserve"
+       style="font-weight:600;font-size:45.9673px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#1c1c1c;stroke-width:30.6449;fill-opacity:1"
+       x="41.89822"
+       y="33.443039"
+       id="text1"
+       transform="scale(1.0033972,0.99661431)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="fill:#1c1c1c;stroke-width:30.6449;fill-opacity:1"
+         x="41.89822"
+         y="33.443039">Yue</tspan></text>
+  </g>
+</svg>
