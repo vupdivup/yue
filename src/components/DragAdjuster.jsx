@@ -3,7 +3,7 @@ import styles from "../styles/DragAdjuster.module.css";
 import { clamp } from "../utils/math";
 
 export function DragAdjuster({
-    className,
+    className="",
     handleAdjust,
     dragging,
     setDragging,
