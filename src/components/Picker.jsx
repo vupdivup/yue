@@ -1,11 +1,11 @@
 import { ColorContext } from "../contexts/ColorContext";
 import { ColorBlock } from "./ColorBlock";
-import { ColorPickerMap } from "./ColorPickerMap";
+import { SaturationValueMap } from "./SaturationValueMap";
 import { EditorPanel } from "./EditorPanel";
 import { HueSlider } from "./HueSlider";
 import styles from "../styles/Picker.module.css";
 
-export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV, className=""}) {
+export function Picker({hsv, rgb, hsl, hex, cmyk, setHSV, className=""}) {
     const color = {
         rgb: rgb, hsl: hsl, hex: hex, cmyk: cmyk, hsv: hsv
     }
@@ -17,7 +17,7 @@ export function ColorPicker({hsv, rgb, hsl, hex, cmyk, setHSV, className=""}) {
                     `widget ${styles.picker} ${className}`
                 }
             >
-                <ColorPickerMap setHSV={setHSV} />
+                <SaturationValueMap setHSV={setHSV} />
                 <HueSlider setHSV={setHSV} />
                 <ColorBlock />
                 <EditorPanel setHSV={setHSV} />

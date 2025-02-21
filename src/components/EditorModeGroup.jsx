@@ -1,10 +1,10 @@
-import styles from "../styles/ColorModeEditor.module.css";
-import { ColorModeParam } from "./ColorModeParam";
+import styles from "../styles/EditorModeGroup.module.css";
+import { EditorParam } from "./EditorParam";
 import { CopyButton } from "./CopyButton";
 
-export function ColorModeEditor({mode, type, params}) {
+export function EditorModeGroup({mode, type, params}) {
     const elems = params.map((p, i) =>
-        <ColorModeParam
+        <EditorParam
             key={i}
             type={type}
             liveValue={p.value}
@@ -17,7 +17,7 @@ export function ColorModeEditor({mode, type, params}) {
     const copyValue = params.map(p => p.value).join(", ");
 
     return (
-        <div className={styles.editor}>
+        <div className={styles.group}>
             {elems}
             <CopyButton value={copyValue} />
         </div>

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
 import { CMYKToHSV, HEXToHSV, HSLToHSV, RGBToHSV } from "../utils/colors";
-import { ColorModeEditor } from "./ColorModeEditor";
+import { EditorModeGroup } from "./EditorModeGroup";
 import { RadioGroup } from "./RadioGroup";
 
 export function EditorPanel({setHSV}) {
@@ -153,7 +153,7 @@ export function EditorPanel({setHSV}) {
                 idx={modeIdx}
                 setIdx={setModeIdx}
             />
-            <ColorModeEditor
+            <EditorModeGroup
                 mode={mode.name}
                 type={mode.type}
                 params={mode.params}

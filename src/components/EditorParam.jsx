@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import styles from "../styles/ColorModeParam.module.css";
+import styles from "../styles/EditorParam.module.css";
 
-export function ColorModeParam({
+export function EditorParam({
     liveValue,
     setLiveValue,
     type,

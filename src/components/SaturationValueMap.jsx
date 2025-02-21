@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { ColorContext } from "../contexts/ColorContext";
 import { useDragAdjuster } from "../hooks/useDragAdjuster";
-import styles from "../styles/ColorPickerMap.module.css";
+import styles from "../styles/SaturationValueMap.module.css";
 import { DragAdjuster } from "./DragAdjuster";
 import { Thumb } from "./Thumb";
 
-export function ColorPickerMap({setHSV}) {
+export function SaturationValueMap({setHSV}) {
     const [dragging, props] = useDragAdjuster(handleAdjust);
     
     const color = useContext(ColorContext);

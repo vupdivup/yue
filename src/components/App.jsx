@@ -1,7 +1,7 @@
 import { useColorPicker } from "../hooks/useColorPicker";
 import "../styles/style.css";
 import styles from "../styles/App.module.css"
-import { ColorPicker } from "./ColorPicker";
+import { Picker } from "./Picker";
 
 export function App() {
     const [hex, rgb, cmyk, hsv, hsl, props] = useColorPicker();
@@ -15,7 +15,7 @@ export function App() {
                 />
                 <h2 className={styles.heading}>Yue</h2>
             </div>
-            <ColorPicker {...props} className={styles.picker} />
+            <Picker {...props} className={styles.picker} />
         </div>
     )
 }
